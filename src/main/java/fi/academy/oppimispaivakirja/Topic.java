@@ -9,8 +9,8 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 public class Topic {
     @Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "topic_topic_id_seq")
-    @SequenceGenerator(name = "topic_topic_id_seq",sequenceName = "topic_topic_id_seq",allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "topic_id_seq")
+    @SequenceGenerator(name = "topic_id_seq",sequenceName = "topic_id_seq",allocationSize = 1)
     @Column(unique = true, nullable = false)
     private Integer id;
     @Column(nullable = false)

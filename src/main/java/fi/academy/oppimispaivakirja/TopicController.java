@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin(origins = "*")
 public class TopicController {
     @Autowired
     private TopicRepository topicRepo;
