@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:63342")
@@ -28,5 +29,18 @@ public class TopicController {
     @DeleteMapping("/api/poistatopic/{id}")
     public void poistaTopic(@PathVariable(name="id") Integer id){
         topicRepo.deleteById(id);
+    }
+
+    @PutMapping("/api/paivitatopic/{id}")
+    public void updateTopic(@RequestBody Topic topic, @PathVariable(name = "id", required = true) int id) {
+        Optional<Topic> top = topicRepo.findById(id);
+        Topic c = top.orElseThrow(RuntimeException::new);
+        c.setTitle(topic.getTitle());
+        c.setDescription(topic.getDescription());
+        c.setAdditionalSource(topic.getAdditionalSource());
+        c.setComplete(topic.isComplete());
+        c.setCreationDate(topic.getCreationDate());
+        c.setCompletionDate(topic.getCompletionDate());
+        topicRepo.save(c);
     }
 }
