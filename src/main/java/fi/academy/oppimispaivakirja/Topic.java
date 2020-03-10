@@ -3,6 +3,7 @@ package fi.academy.oppimispaivakirja;
 import javax.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -20,8 +21,26 @@ public class Topic {
     private boolean complete;
     private Date creationDate;
     private Date completionDate;
+    private LocalDateTime alarm;
+    private boolean set_alarm;
 
     public Topic(){
+    }
+
+    public LocalDateTime getAlarm() {
+        return alarm;
+    }
+
+    public void setAlarm(LocalDateTime alarm) {
+        this.alarm = alarm;
+    }
+
+    public boolean isSet_alarm() {
+        return set_alarm;
+    }
+
+    public void setSet_alarm(boolean set_alarm) {
+        this.set_alarm = set_alarm;
     }
 
     public Integer getId() {
